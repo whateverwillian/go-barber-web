@@ -179,6 +179,7 @@ export const Appointment = styled.div`
     display: flex;
     align-items: center;
     color: white;
+    width: 70px;
 
     svg {
       color: #ff9000;
@@ -186,7 +187,7 @@ export const Appointment = styled.div`
     }
   }
 
-  div {
+  > div {
     flex: 1;
     background: #3e3b47;
     display: flex;
