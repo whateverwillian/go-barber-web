@@ -5,6 +5,7 @@ interface User {
   id: string;
   name: string;
   avatar: string;
+  email: string;
 }
 
 interface AuthState {
@@ -21,6 +22,7 @@ interface AuthenticationContext {
   user: User;
   signIn(credentials: SignInCredentials): Promise<void>;
   signOut(): void;
+  updateUser(updateData: Partial<User>): void;
 }
 
 export const AuthContext = createContext<AuthenticationContext>(
@@ -49,6 +51,18 @@ export const AuthProvider: React.FC = ({ children }) => {
     return {} as AuthState;
   });
 
+  const updateUser = useCallback(
+    (user: User) => {
+      localStorage.setItem('@GoBarber:user', JSON.stringify(user));
+
+      setData({
+        token: data.token,
+        user,
+      });
+    },
+    [data],
+  );
+
   const signIn = useCallback(async ({ email, password }) => {
     const response = await api.post('/sessions', {
       email,
@@ -57,12 +71,17 @@ export const AuthProvider: React.FC = ({ children }) => {
 
     const { user, token } = response.data;
 
+    const formattedUser = {
+      ...user,
+      avatar: user.avatar_url,
+    };
+
     api.defaults.headers.authorization = `Bearer ${token}`;
 
     localStorage.setItem('@GoBarber:token', token);
-    localStorage.setItem('@GoBarber:user', JSON.stringify(user));
+    localStorage.setItem('@GoBarber:user', JSON.stringify(formattedUser));
 
-    setData({ user, token });
+    setData({ user: formattedUser, token });
   }, []);
 
   const signOut = useCallback(() => {
@@ -73,7 +92,9 @@ export const AuthProvider: React.FC = ({ children }) => {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ user: data.user, signIn, signOut }}>
+    <AuthContext.Provider
+      value={{ user: data.user, signIn, signOut, updateUser }}
+    >
       {children}
     </AuthContext.Provider>
   );

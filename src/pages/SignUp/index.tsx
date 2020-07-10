@@ -73,7 +73,7 @@ const SignUp: React.FC = () => {
         });
       }
     },
-    [addToast],
+    [addToast, history],
   );
 
   return (
