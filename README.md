@@ -14,7 +14,7 @@
   <h3 align="center">GoBarber Web</h3>
 
   <p align="center">
-    Versão web do aplicativo Go Barber feito com ReactJS e TypeScript
+    Versão web do aplicativo GoBarber feito com ReactJS e TypeScript
     <br />
     <br />
     <a href="https://github.com/whateverwillian/go-barber-web/issues">Reportar um Bug</a>
@@ -31,7 +31,7 @@
 * [Getting started](#rainbow-getting-started)
   * [Pré-requisitos](#pré-requisitos)
   * [Instalação](#instalação)
-* [Rotas da aplicação](#fire-rotas-da-aplicação)
+* [Funcionalidades](#fire-funcionalidades)
 * [Como contribuir?](#bug-como-contribuir)
 * [Licença](#closed_book-licença)
 * [Contatos](#heart_eyes-contatos)
@@ -42,7 +42,7 @@
 
 <!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
 
-Esse é o aplicativo web do GoBarber. A idéia do aplicativo é auxiliar na vida dos barbeiros facilitando a parte de gerenciar os serviços. O aplicativo mantém uma agenda e nela usuários podem marcar seus cortes de cabelo, mantendo uma lista dos próximos usuários à serem atendidos e uma disponibilidade automática.
+Esse é o aplicativo web do GoBarber. A idéia é auxiliar a vida dos barbeiros facilitando o gerenciamento de serviços. O aplicativo mantém uma agenda e nela usuários podem marcar seus cortes de cabelo, mantendo uma lista dos próximos usuários a serem atendidos e uma disponibilidade automática.
 
 ### Tecnologias utilizadas
 Nesse aplicativo foram utilizadas as seguintes tecnologias
@@ -70,10 +70,24 @@ git clone https://github.com/whateverwillian/go-barber-web
 ```sh
 npm install
 ```
-3. Inicie o projeto
+3. Configure a [API](https://github.com/whateverwillian/go-barber-server)
+
+4. Inicie o projeto
 ```sh
 npm run start
 ```
+
+## :fire: Funcionalidades
+
+* Se registrar como cliente ou prestador de serviços
+* Listar barbeirxs
+* Atualizar dados de conta
+* Atualizar foto do perfil
+* Buscar disponibilidade dos prestadores de serviço
+* Fazer agendamentos
+* Mostrar agenda para o dia
+* Sistema de notificações
+
 <!-- CONTRIBUTING -->
 ## :bug: Como contribuir?
 
