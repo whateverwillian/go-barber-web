@@ -74,7 +74,7 @@ npm install
 
 4. Inicie o projeto
 ```sh
-npm run start
+npm start
 ```
 
 ## :fire: Funcionalidades
